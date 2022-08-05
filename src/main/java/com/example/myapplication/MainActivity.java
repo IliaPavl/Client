@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private DBService dbService;
     private SwipeRefreshLayout swipeRefreshLayout;
     private Adapter adapter;
-    private boolean setedTheme = true;
     private SharedPreferences sPref;
     private static final String SAVED_THEME = "saved_theme";
     private static final String LANGUAGE = "language";
@@ -100,14 +99,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         if (loadLocal(SAVED_THEME).equals("Light")) {
             setTheme(R.style.Theme_MyApplicationLight);
             saveLocal("Light", SAVED_THEME);
-            setedTheme = false;
-        } else if (loadLocal(SAVED_THEME).equals("Dark")) {
+        } else {
             setTheme(R.style.Theme_MyApplicationBlack);
             saveLocal("Dark", SAVED_THEME);
-        } else {
-            setTheme(R.style.Theme_MyApplicationLight);
-            saveLocal("Light", SAVED_THEME);
-
         }
         setMyTheme();
     }
@@ -137,6 +131,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(typedValue.data));
 
         theme.resolveAttribute(android.R.attr.colorPrimaryDark, typedValue, true);
+
+        theme.resolveAttribute(android.R.attr.content, typedValue, true);
+
         Window window = getWindow();
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(typedValue.data);
@@ -227,23 +224,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 new FetchPing().execute();
                 break;
             }
-            case R.id.app_bar_help: {
-                swipeRefreshLayout.setRefreshing(true);
-                new FetchHelpServer().execute();
-                break;
-            }
             case R.id.app_bar_switch_Language: {
                 switchLanguage();
                 break;
             }
             case R.id.app_bar_switch: {
-                if (setedTheme) {
-                    setedTheme = false;
+                if (!loadLocal(SAVED_THEME).equals("Light")) {
                     setTheme(R.style.Theme_MyApplicationLight);
                     saveLocal("Light", SAVED_THEME);
                     setMyTheme();
                 } else {
-                    setedTheme = true;
                     setTheme(R.style.Theme_MyApplicationBlack);
                     saveLocal("Darck", SAVED_THEME);
                     setMyTheme();
