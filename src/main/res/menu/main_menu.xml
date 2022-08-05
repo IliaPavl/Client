@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/app_bar_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/app_bar_help"
+        android:title="@string/help"
+        app:actionViewClass="android.widget.Button" />
+
+    <item
+        android:id="@+id/app_bar_ping"
+        android:title="@string/ping"
+        app:actionViewClass="android.widget.Button" />
+    <item
+        android:id="@+id/app_bar_switch"
+        android:title="@string/switchtheme"
+        app:actionViewClass="android.widget.Switch" />
+    <item
+        android:id="@+id/app_bar_switch_Language"
+        android:title="@string/language"
+        app:actionViewClass="android.widget.Switch" />
+</menu>

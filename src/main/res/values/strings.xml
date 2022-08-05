@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Cliet List</string>
+    <string name="username">UserName:</string>
+    <string name="clientname">name</string>
+    <string name="fullname">fullname</string>
+    <string name="cheak_server">Cheak Server</string>
+    <string name="search">Search</string>
+    <string name="help">Help</string>
+    <string name="ping">Ping</string>
+    <string name="switchtheme">SwitchTheme</string>
+    <string name="language">Switch language to ru</string>
+</resources>
+

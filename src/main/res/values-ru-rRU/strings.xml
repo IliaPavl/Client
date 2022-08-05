@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Список клиентов</string>
+    <string name="username">UserName:</string>
+    <string name="clientname">Имя</string>
+    <string name="fullname">Ф.И.О.</string>
+    <string name="cheak_server">Проверить сервер</string>
+    <string name="search">Найти</string>
+    <string name="help">Помощь</string>
+    <string name="ping">Состояние сервера</string>
+    <string name="switchtheme">Поменять тему</string>
+    <string name="language">Сменить язык на en</string>
+</resources>
